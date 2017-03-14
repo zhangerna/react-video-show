@@ -1,0 +1,54 @@
+
+.searchFilter-title {
+	color: grey;
+	font-family: youyuan;
+	font-size: 1.3em;
+}
+
+.search-border {
+	margin-top: 0.5em;
+	padding: 0.5em 0 0.8em 0;
+	border-bottom: solid 1px #ddd;
+}
+
+.Filter-martin {
+	margin: 0.5em 0 0 0;
+	font-weight: bolder;
+	font-family: youyuan;
+	font-size: 0.9em;
+
+}
+
+.content-martin {
+	color: grey;
+	display: inline;
+	list-style-type: none;
+	font-size: 0.8em;
+}
+
+.inline {
+	display: inline;
+	margin-right: 2em;
+}
+
+.inline:hover {
+	display: inline;
+	margin-right: 2em;
+	color: red;
+	cursor: pointer;	
+}
+
+.name-martin {
+	margin-right: 2em;
+}
+
+.search-button {
+	display: inline;
+	margin-left: 2em;
+}
+
+.red-inline {
+	color: red;
+	display: inline;
+	margin-right: 2em;
+}

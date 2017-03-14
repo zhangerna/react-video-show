@@ -1,0 +1,28 @@
+
+.font-size {
+	font-size: 10px;
+}
+
+
+.width-5 {
+	width: 5%;
+}
+
+#react-paginate ul {
+    display: inline-block;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+#react-paginate li {
+    display: inline-block;
+    cursor: pointer;
+}
+
+#react-paginate .break a {
+    cursor: default;
+}
+
+.right {
+	float: right;
+}
