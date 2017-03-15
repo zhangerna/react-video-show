@@ -19,8 +19,9 @@ class navBar extends Component {
 	}
 
 	componentWillMount(){
+		console.log(this.props.location)
 		console.log(window.location.pathname)
-		if (window.location.pathname == "/video"){
+		if (window.location.pathname == "/index"){
 			this.setState({
 				currentIndex:1,
 				index1_class:true,
@@ -38,6 +39,7 @@ class navBar extends Component {
 	choiceSelect(event){
 		var currentIndex = event.target.id;
 		if(event.target.id == 1){
+			
 			this.setState({
 				currentIndex:currentIndex,
 				index1_class:true,
