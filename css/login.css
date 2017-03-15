@@ -1,0 +1,19 @@
+.login-label {
+	width: 200px;
+	top: 50%;
+	left: 40%;
+	position: absolute;
+	z-index: 88;
+}
+
+.width-label {
+	width: 10%;
+}
+
+.width-input {
+	width: 85%
+}
+
+.button-style{
+	margin-top: 1em;
+}
