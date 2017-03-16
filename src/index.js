@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import { Router, browserHistory, Route } from 'react-router';
 import ErrorVideo from "./ErrorVideo/index";
 import App from "./App";
-import Login from "./login"
+import Login from "./login";
+import Video from "./Video/index";
 
 // const getRootRouter = [
 // 	{
@@ -16,17 +17,19 @@ import Login from "./login"
 // 	}
 // ];
 
-const getRootRouter = <Route path="/" component={Login}>
-						<Route path="index" component={App}/>
-						<Route path="error_video" component={ErrorVideo}/>
-					</Route>
+// const getRootRouter = <Route path="/" component={Login}>
+// 						<Route path="index" component={App}/>
+// 						<Route path="error_video" component={ErrorVideo}/>
+// 					</Route>
 
 
 ReactDOM.render(
 	<Router history={ browserHistory }>
 		<Route path="/" component={Login} />
-		<Route path="/index" component={App}/>
-		<Route path="/error_video" component={ErrorVideo}/>
+		<Route path="/index" component={App}>
+			<Route path="/error_video" component={ErrorVideo}/>
+			<Route path="/video" component={Video} />
+		</Route>
 	</Router>, 
 	document.getElementById('root')
-	);
+);

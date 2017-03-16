@@ -3,8 +3,6 @@ import { Button } from 'react-bootstrap';
 import ReactPaginate from 'react-paginate';
 import "../../css/FilterContent.css";
 
-let page_size = 30;
-
 class FilterContent extends React.Component{
 	constructor(props, context){
 		super(props, context);
@@ -135,7 +133,7 @@ class Table extends React.Component{
 
 							))
 							:
-							<h3>正在加载</h3>
+							<tr>正在加载</tr>
 						}
 					</tbody>
 				</table>

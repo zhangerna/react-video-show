@@ -1,6 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { Input, FormControl, Button } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import "../../css/searchFilter.css";
 
 

@@ -16,11 +16,10 @@ class navBar extends Component {
 		}
 
 		this.choiceSelect = this.choiceSelect.bind(this);
+		this.logout = this.logout.bind(this);
 	}
 
 	componentWillMount(){
-		console.log(this.props.location)
-		console.log(window.location.pathname)
 		if (window.location.pathname == "/index"){
 			this.setState({
 				currentIndex:1,
@@ -55,13 +54,18 @@ class navBar extends Component {
 			browserHistory.push(`/error_video`)
 		}
 	}
+	logout(){
+		console.log("logout.....")
+		browserHistory.push("/")
+	}
 	
     render(){
         return (
           <SiteNavBar
           		onSelect={this.choiceSelect} 
           		index1_class={this.state.index1_class}
-          		index2_class={this.state.index2_class}  />
+          		index2_class={this.state.index2_class}
+          		logout={this.logout}  />
         );
     };
 };

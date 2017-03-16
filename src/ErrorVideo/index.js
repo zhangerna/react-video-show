@@ -79,7 +79,6 @@ class Video extends React.Component{
 			return temp
 		}
 		let href = join_url(this.state.searchFilter, url);
-		let receiveData = null;
 		var that = this;
 		$.get(href, function(json, status){
 			if (json){

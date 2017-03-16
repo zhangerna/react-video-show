@@ -90,7 +90,10 @@ class Login extends Component {
   }
 
   loginIn(){
-    console.log("eeee")
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+    console.log(username);
+    console.log(password);
     browserHistory.push(`/index`)
   }
 
@@ -122,7 +125,7 @@ class UserName extends Component{
     return (
       <div className="form-group">
         <label className="width-label">username</label>
-        <input name="username" type="text" className="form-control width-input" required />
+        <input name="username" id="username" type="text" className="form-control width-input" ref="username" required />
       </div>
     )
   }
@@ -134,7 +137,7 @@ class PassWord extends Component{
     return (
       <div>
         <label className="width-label">password</label>
-        <input name="password" type="text" className="form-control width-input" required />
+        <input name="password" id="password" type="text" className="form-control width-input" ref="password" required />
       </div>
     )
   }

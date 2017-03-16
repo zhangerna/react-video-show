@@ -40,3 +40,33 @@
     background-color: grey;    
     cursor:pointer;
 };
+
+.position {
+    float: right;
+    color: grey;
+    margin-right: 10em;
+}
+
+.white {
+    color: grey;
+    display: inline;
+    float: right;
+    margin-right: 2em;
+}
+
+
+.break {
+    cursor: pointer;
+}
+
+.break:hover{
+    color: wheat;
+}
+
+.user {
+    cursor: pointer;
+}
+
+.user:hover{
+    color: wheat;
+};
