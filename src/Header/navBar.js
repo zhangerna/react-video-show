@@ -2,8 +2,10 @@
  * Created by user on 2017/2/28.
  */
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import SiteNavBar from './siteNavBar';
-import { browserHistory } from 'react-router'
+import { browserHistory } from 'react-router';
+import * as NavAction from "./action";
 
 class navBar extends Component {
 	constructor(props, context){
@@ -44,6 +46,8 @@ class navBar extends Component {
 				index1_class:true,
 				index2_class:false
 			});
+			const action = NavAction.getCurrentIndex(currentIndex);
+			this.props.dispatch(action);
 			browserHistory.push(`/video`)
 		}else{
 			this.setState({
@@ -51,11 +55,14 @@ class navBar extends Component {
 				index2_class:true,
 				index1_class:false
 			});
+			const action = NavAction.getCurrentIndex(currentIndex);
+			this.props.dispatch(action);
 			browserHistory.push(`/error_video`)
 		}
 	}
 	logout(){
-		console.log("logout.....")
+		const action = NavAction.logout();
+		this.props.dispatch(action);
 		browserHistory.push("/")
 	}
 	
@@ -70,5 +77,5 @@ class navBar extends Component {
     };
 };
 
-export default navBar;
+export default connect()(navBar);
 

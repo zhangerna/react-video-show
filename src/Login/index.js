@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import G2 from 'g2';
 import { browserHistory } from 'react-router';
 import { Button } from "react-bootstrap";
-import "../css/login.css"
+import "../../css/login.css"
+import * as LoginAction  from "./action";
 
 
 class Login extends Component {
   constructor(props, context){
-    super(props);
+    super(props, context);
 
     this.loginIn = this.loginIn.bind(this);
   }
@@ -94,6 +96,12 @@ class Login extends Component {
     const password = document.getElementById("password").value;
     console.log(username);
     console.log(password);
+    if (username && password){
+    	const action = LoginAction.loginCheck(username, password)
+    	this.props.dispatch(action)
+    }else{
+    	alert("username or password is error!")
+    }
     browserHistory.push(`/index`)
   }
 
@@ -106,7 +114,7 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default connect()(Login);
 
 class LoginLabel extends Component{
   render(){

@@ -1,6 +1,8 @@
 import React from 'react';
+import { connect } from "react-redux";
 import SearchFilter from './SearchFilter';
 import FilterContent from './FilterContent';
+import * as ErrorVideo  from "./action";
 import $ from "jquery";
 
 let ip= "http://192.168.31.240:8081";
@@ -34,6 +36,8 @@ class Video extends React.Component{
 		this.setState({
 			receiveData:receiveData
 		})
+		const action = ErrorVideo.init_error_table(receiveData);
+		this.props.dispatch(action);
 	}
 	search(data){
 		this.setState({
@@ -54,13 +58,15 @@ class Video extends React.Component{
 			return temp
 		}
 		let href = join_url(data, url);
-		let receiveData = null;
 		var that = this;
 		$.get(href, function(json, status){
+			const action = ErrorVideo.searchData(data, json);
+			this.props.dispatch(action);
 			if (json){
 				that.setState({
 					receiveData: json
 				})
+
 			}
 		})
 	}
@@ -98,4 +104,4 @@ class Video extends React.Component{
 	}
 };
 
-export default Video;
+export default connect()(Video);

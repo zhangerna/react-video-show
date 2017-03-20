@@ -2,6 +2,8 @@ import React from 'react';
 import SearchFilter from './SearchFilter';
 import FilterContent from './FilterContent';
 import $ from "jquery";
+import { connect } from "react-redux";
+import * as VideoContent from "./action";
 
 let ip= "http://192.168.31.240:8081";
 let page = 1;
@@ -23,6 +25,7 @@ class Video extends React.Component{
 	componentWillMount(){
 		var receiveData = {}
 		var that = this;
+		var test = null;
 		$.ajax({
 			type:"get",
 			url:url +page,
@@ -32,6 +35,7 @@ class Video extends React.Component{
 			},
 			async:false,
 			success:function(data){
+				test = data;
 				receiveData = data;
 				that.setState({
 					receiveData: data
@@ -42,6 +46,9 @@ class Video extends React.Component{
 		this.setState({
 			receiveData:receiveData
 		})
+		const action = VideoContent.init_table(receiveData);
+		this.props.dispatch(action);
+
 	}
 	search(data){
 		this.setState({
@@ -69,8 +76,11 @@ class Video extends React.Component{
 				that.setState({
 					receiveData: json
 				})
+				const action = VideoContent.saveSearchData(data, json);
+				that.props.dispatch(action);
 			}
 		})
+
 	}
 	changePage(data){
 		var current_page= data.selected + 1;
@@ -109,4 +119,4 @@ class Video extends React.Component{
 	}
 };
 
-export default Video;
+export default connect()(Video);
