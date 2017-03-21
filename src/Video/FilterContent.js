@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 import ReactPaginate from 'react-paginate';
 import "../../css/FilterContent.css";
+import $ from "jquery";
 
 class FilterContent extends React.Component{
 	constructor(props, context){
@@ -50,6 +51,7 @@ class Table extends React.Component{
 		}
 		this.onClick = this.onClick.bind(this);
 		this.choiceDownload = this.choiceDownload.bind(this);
+		this.checkbox_choice = this.checkbox_choice.bind(this);
 	}
 	componentWillMount(){
 		this.setState({
@@ -84,6 +86,10 @@ class Table extends React.Component{
 			download_id: temp
 		})
 	}
+	checkbox_choice(event){
+		console.log(event.target.id);
+		$("#" + event.target.id).attr("checked", "checked")
+	}
 	render(){
 		return(
 			<div className="font-size">
@@ -109,9 +115,9 @@ class Table extends React.Component{
 								Object.keys(ele["website"]).map((key) => (
 									<tr>
 										{ele["website"][key]["download_status"] >= 2 || this.state.download_id.indexOf(ele["website"][key]["source_episode_id"]) != -1  ? 
-											<td><input type='checkbox' value="" checked={this.state.all_select} disabled/></td>
+											<td><input type='checkbox' id={ele["website"][key]["source_episode_id"]} value="" checked={false} disabled/></td>
 										:
-											<td><input type='checkbox' value="" checked={this.state.all_select}/></td>
+											<td><input type='checkbox' id={ele["website"][key]["source_episode_id"]} onClick={this.checkbox_choice} value="" checked={this.state.all_select}/></td>
 										}
 										<td>{ele["name"]}</td>
 										<td>{ele["video_num"]}</td>
