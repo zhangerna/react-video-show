@@ -5,6 +5,6 @@
     create-react-app
 
 启动方法：
-    npm install
-    npm start
+    npm install;
+    npm start;
 
